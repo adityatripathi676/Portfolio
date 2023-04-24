@@ -1,0 +1,252 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: #0f3854;
+    background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+    background-color: #202124;
+    color: white;
+}
+
+body::-webkit-scrollbar {
+  width: .5vw;       /*width of scrollbar */
+  position: absolute;
+  overflow: hidden;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;    /* color of the scroll thumb */
+  background-blend-mode: screen;
+  border-radius: 1.04vw;       /* roundness of the scroll thumb */
+  border: transparent;  /* creates padding around scroll thumb */
+}
+
+a {
+    color: white;
+}
+
+.navbar {
+  background: rgba(70, 70, 84, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  color: aqua;
+  border: transparent;
+  border-radius: 2vw;
+  overflow: hidden;
+  height: 3vw;
+  display: flex;
+  font-size: inherit;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-decoration: none;
+  width: 95%;
+  position: relative;
+  left: 2vw;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .navbar a.active {
+  background: rgba( 255, 255, 255, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8px );
+  -webkit-backdrop-filter: blur( 8px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: white;
+  border-radius: 2vw;
+  }
+  
+  .navbar .icon {
+  display: none;
+  }
+  
+  .navbar:hover {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  filter: blur(60%);
+  }
+  
+  .navbar a {
+  text-decoration: none;
+  padding: 3vw;
+  }
+  
+  .navbar a:hover {
+  text-decoration: none;
+  color: #0aafe6;
+  }
+  
+  @media screen and (max-width: 1024px) {
+  .navbar a:not(:first-child) {
+    display: none;
+  }
+  .navbar a.icon {
+  float: right;
+  display: block;
+  }
+  }
+  
+  @media screen and (max-width: 600px) {
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  }
+  .navbar.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+  }
+  }
+
+.welcome {
+    border-width: .10vw;
+    width: 45%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    position: relative;
+    left: 6vw;
+    border-radius: 6vw;
+    background: linear-gradient(44deg, #ffffff38, transparent, transparent 100%);
+    padding-left: 5vw;
+    overflow: hidden;
+    margin-bottom: 3vw;
+}
+
+.welcome1 {
+    border-width: 0.1px;
+    width: 45%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    position: relative;
+    left: 6vw;
+    border-radius: 2vw;
+    background: linear-gradient(44deg, #ffffff38, transparent 75%);
+    padding-left: 5vw;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 50vw;
+}
+
+.welcome:hover {
+    background-color: #303134;
+    border-radius: 2vw;
+    position: relative;
+    left: 6vw;
+    background: linear-gradient(44deg, #ffffff33, transparent 75%);
+}
+
+.welcome1:hover {
+    background-color: #303134;
+    border-radius: 2vw;
+    position: relative;
+    left: 6vw;
+    width: 50vw;
+    background: linear-gradient(44deg, #ffffff33, transparent 75%);
+}
+
+.welbox {
+    text-align: center;
+    color: white;
+    position: relative;
+    font-size: inherit;
+}
+
+.wel1img img {
+  border-radius: 2vw;
+  max-width: 100%;
+  position: relative;
+  user-select: none;
+  background-size: cover;
+}
+
+.t2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width:70vw;
+}
+
+.t3 {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 89%;
+  flex-wrap: wrap;
+  user-select: none;
+}
+/* #clock {
+font-family: "Share Tech Mono", monospace;
+color: #ffffff;
+text-align: center;
+position: relative;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+color: #daf6ff;
+text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+}
+
+#clock .time {
+letter-spacing: 0.05em;
+font-size: 80px;
+padding: 5px 0;
+}
+
+#clock .date {
+letter-spacing: 0.1em;
+font-size: 24px;
+}
+
+#clock .text {
+letter-spacing: 0.1em;
+font-size: 15px;
+padding: 20px 0 0;
+} */
+
+/* .navbar {
+background: rgba(70, 70, 84, 0.5);
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+backdrop-filter: blur(7.5px);
+-webkit-backdrop-filter: blur(7.5px);
+color: aqua;
+border: transparent;
+border-radius: 2vw;
+height: 3vw;
+font-size: 1.5vw;
+display: grid;
+justify-items: center;
+justify-content: center;
+align-items: center;
+align-content: center;
+text-decoration: none;
+width: 95%;
+position: relative;
+left: 2vw;
+font-family: Arial, Helvetica, sans-serif;
+overflow: hidden;
+}
+*/
