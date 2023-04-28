@@ -11,23 +11,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="60f0ef4fd33540000bb979ba.png" type="image/x-icon">
 </head>
-
-<body>
-    <div class="t1" style="user-select: none;">
-        <div class="navbar" id="topnav">
-            <a href="#home" style="zoom: normal;" class="active">Home</a>
-            <a href="Weather/weather.html">Weather</a>
-            <a href="#friends">My Friends</a>
-            <a href="portfolio.html" target="_blank">My Portfolio</a>
-            <a href="clock.css" target="_blank">Portfolio CSS</a>
-            <a href="#posts">Blogs</a>
-            <a href="#about">About</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+<div class="t1" style="user-select: none;">
+    <div class="navbar" id="topnav">
+        <a href="#home" style="zoom: normal;" class="active">Home</a>
+        <a href="#friends">My Friends</a>
+        <a href="#timeline">Timeline</a>
+        <a href="portfolio.html" target="_blank">My Portfolio</a>
+        <a href="clock.css" target="_blank">Portfolio CSS</a>
+        <a href="#posts">Blogs</a>
+        <a href="#about">About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
-    <hr id="home">
+</div>
+<body>
+    <div class="gototop">
+        <a href="#top">^</a>
+    </div>
     <div class="t2">
         <div class="t3">
             <div class="welcome">
@@ -51,7 +52,22 @@
         </div>
     </div>
     <hr id="friends">
+    <div class="profilehead">
+        <h1>Friends & Team</h1>
+    </div>
     <div class="profile">
+        <div class="profile1">
+            <div class="profileimg">
+                <img src="kindpng_4952535.png" alt="Friend 1">
+            </div>
+            <div class="profile1head">
+                Name
+            </div>
+            <div class="profiledet">
+                <p>Det1</p>
+                <p>Det2</p>
+            </div>
+        </div>
         <div class="profile1">
             <div class="profileimg">
                 <img src="kindpng_4952535.png" alt="Friend 1">
@@ -89,6 +105,79 @@
             </div>
         </div>
     </div>
+    <hr id="timeline" style="margin-bottom: 20px; margin-top: 15px;">
+    <div class="container">
+        <div class="row">
+          <div class="column left">
+            <span class="dot" style="background:#ED594A;"></span>
+            <span class="dot" style="background:#FDD800;"></span>
+            <span class="dot" style="background:#5AC05A;"></span>
+          </div>
+          <div class="column middle">
+            <input type="text" value="http://www.w3schools.com">
+          </div>
+          <div class="column right">
+            <div style="float:right">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </div>
+        <div class="profilehead">
+            <h1>Timeline</h1>
+        </div>
+        <div class="timeline">
+            <div class="timelinecontainer timeleft">
+                <div class="timelinecontent">
+                    <h2>2017</h2>
+                    <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                        mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                        primis ea eam.</p>
+                </div>
+            </div>
+            <div class="timelinecontainer timeright">
+                <div class="timelinecontent">
+                    <h2>2016</h2>
+                    <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                        mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                        primis ea eam.</p>
+                </div>
+            </div>
+            <div class="timelinecontainer timeleft">
+                <div class="timelinecontent">
+                    <h2>2015</h2>
+                    <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                        mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                        primis ea eam.</p>
+                </div>
+            </div>
+            <div class="timelinecontainer timeright">
+                <div class="timelinecontent">
+                    <h2>2012</h2>
+                    <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                        mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                        primis ea eam.</p>
+                </div>
+            </div>
+            <div class="timelinecontainer timeleft">
+                <div class="timelinecontent">
+                    <h2>2011</h2>
+                    <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                        mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                        primis ea eam.</p>
+                </div>
+            </div>
+            <div class="timelinecontainer timeright">
+                <div class="timelinecontent">
+                    <h2>2007</h2>
+                    <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                        mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                        primis ea eam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quae voluptatem eveniet vel, libero ullam
         molestias aut perferendis quod sequi amet animi quo quas? Vero quia accusamus et aliquid similique.
         In, esse repellendus, maiores doloribus assumenda fugit eligendi officia laborum eum at praesentium nemo
@@ -96,7 +185,8 @@
         ratione fugiat!
         Totam, quibusdam repudiandae porro necessitatibus saepe nesciunt ut beatae vitae possimus animi! Temporibus
         omnis optio ipsam molestias qui dolor id, non nesciunt ipsum recusandae. Nobis doloremque libero incidunt quam
-        eaque?</p>
+        eaque?
+    </p>
 </body>
 
 </html>
