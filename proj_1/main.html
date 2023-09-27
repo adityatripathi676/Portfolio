@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Tripathi - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .navbar a:hover {
+            color: #3498db;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #212121;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .hero button:hover {
+            background-color: #ffffff;
+            color: #3498db;
+        }
+
+        .skills {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 40px;
+            background-color: #212121;
+        }
+
+        .skills h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .skills li {
+            margin-right: 20px;
+            font-size: 1.2rem;
+        }
+
+        .projects {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #212121;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .projects h2 {
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .contact {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #212121;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .contact-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 500px;
+            max-width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            background-color: #333333;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ffffff;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #ffffff;
+            color: #3498db;
+        }
+
+        .footer {
+            background-color: #212121;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .navbar {
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin-left: 10px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .skills h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills li {
+                font-size: 1rem;
+                margin-right: 10px;
+            }
+
+            .projects h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%; 
+                max-width: 100%;
+            }
+
+            .contact-form button {
+                padding: 8px 16px;
+                font-size: 1rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h3>Aditya Tripathi</h3>
+            <nav>
+                <a href="#hero">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+
+        <div id="hero" class="hero">
+            <h1>Hi, I'm Aditya Tripathi</h1>
+            <p>I'm a Programmer and Developer Student based in India.</p>
+            <button>Contact Me</button>
+        </div>
+
+        <div id="skills" class="skills">
+            <h2>My Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>C</li>
+                <li>C++</li>
+            </ul>
+        </div>
+
+        <div id="projects" class="projects">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <a href="#" target="_blank" class="project">
+                    <img src="https://source.unsplash.com/random/1920x1080/?tech,computer" alt="Project 1">
+                    <p class="project-title" style="background: rgba( 255, 255, 255, 0.25 ); box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); backdrop-filter: blur( 4px ); -webkit-backdrop-filter: blur( 4px );">Project 1</p>
+                </a>
+
+                <a href="#" target="_blank" class="project">
+                    <img src="https://source.unsplash.com/random/1920x1080/?tech,computer" alt="Project 2">
+                    <p class="project-title" style="background: rgba( 255, 255, 255, 0.25 ); box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); backdrop-filter: blur( 4px ); -webkit-backdrop-filter: blur( 4px );">Project 2</p>
+                </a>
+
+            </div>
+        </div>
+
+        <div id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <form action="aditya.tripathi7631@gmail.com" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2023 Aditya Tripathi</p>
+        </footer>
+    </div>
+</body>
+</html>
