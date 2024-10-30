@@ -4,185 +4,434 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Tripathi - Cybersecurity Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset some default styles */
+    :root {
+      --primary-color: #4B0082;
+      --secondary-color: #8B008B;
+      --text-color: #f2f2f2;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Roboto', sans-serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Global styles */
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-body);
+      color: var(--text-color);
       background-color: #1a1a1a;
-      color: #f2f2f2;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
-    }
-
-    /* Header styles */
-    header {
+    /* Loading Screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-color);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
-
-    .logo h1 {
-      font-size: 32px;
-      font-weight: 700;
-    }
-
-    nav ul {
-      display: flex;
-      list-style-type: none;
-    }
-
-    nav ul li {
-      margin-left: 20px;
-    }
-
-    nav ul li a {
-      color: #f2f2f2;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #00b8d4;
-    }
-
-    /* Main content styles */
-    main {
-      display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 80px 0;
+      z-index: 9999;
+      animation: fadeOut 0.5s ease-in-out 3s forwards;
     }
 
-    .profile-image {
-      width: 200px;
-      height: 200px;
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 5px solid var(--text-color);
+      border-top-color: transparent;
       border-radius: 50%;
-      background-image: url('profile.jpg');
+      animation: spin 1s linear infinite;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('/u2b4t36k.png');
       background-size: cover;
       background-position: center;
-      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
     }
 
-    h2 {
-      font-size: 36px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: 48px;
       font-weight: 700;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.5;
+    .hero-content p {
+      font-size: 24px;
       margin-bottom: 40px;
     }
 
-    .social-links {
+    .cta-button {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #6B2CB3;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
       display: flex;
       justify-content: center;
-      margin-bottom: 40px;
+      z-index: 999;
     }
 
-    .social-links a {
-      color: #f2f2f2;
+    nav ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: var(--text-color);
       text-decoration: none;
-      font-size: 24px;
-      margin: 0 10px;
+      font-size: 18px;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    .social-links a:hover {
-      color: #00b8d4;
+    nav ul li a:hover {
+      color: var(--secondary-color);
     }
 
-    /* Footer styles */
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .section-content {
+      max-width: 800px;
+      width: 100%;
+      background-color: #2a2a2a;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Skills */
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .skill-item {
+      background-color: #3a3a3a;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .skill-item i {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+    }
+
+    /* Education and Experience */
+    .education-item,
+    .experience-item {
+      margin-bottom: 40px;
+    }
+
+    .education-item h3,
+    .experience-item h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .education-item h4,
+    .experience-item h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .education-item p,
+    .experience-item p {
+      font-size: 16px;
+    }
+
+    /* Contact */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      background-color: #3a3a3a;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .contact-form textarea {
+      height: 150px;
+    }
+
+    .contact-form button {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      border: none;
+      border-radius: 4px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #6B2CB3;
+    }
+
+    /* Footer */
     footer {
       background-color: #111111;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
       font-size: 14px;
       color: #8c8c8c;
     }
 
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px;
+    /* Animations */
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
       }
-
-      header {
-        flex-direction: column;
-        text-align: center;
+      100% {
+        opacity: 0;
+        visibility: hidden;
       }
+    }
 
-      nav ul {
-        margin-top: 20px;
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
-
-      nav ul li {
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-
-      .profile-image {
-        width: 150px;
-        height: 150px;
-      }
-
-      h2 {
-        font-size: 28px;
-      }
-
-      p {
-        font-size: 16px;
+      100% {
+        transform: rotate(360deg);
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <h1>Aditya Tripathi</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <div class="profile-image"></div>
-      <h2>Cybersecurity Enthusiast</h2>
-      <p>Passionate about learning new technologies and contributing to innovative projects in the tech industry.</p>
-      <div class="social-links">
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2023 Aditya Tripathi. All rights reserved.</p>
-    </footer>
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loading-spinner"></div>
   </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Aditya Tripathi</h1>
+      <p>Cybersecurity Enthusiast and Aspiring Software Engineer</p>
+      <a href="#about" class="cta-button">Explore</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-content">
+      <h2>About Me</h2>
+      <p>I am a passionate cybersecurity enthusiast and aspiring Software Engineer, currently pursuing a B.Tech in Computer Science with a specialization in Digital Forensics and Cyber Security at Manav Rachna International Institute of Research and Studies (MRIIRS). I am eager to leverage my skills in Python, web design, and my growing expertise in digital forensics and cybersecurity to contribute to innovative projects in the tech industry.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="section-content">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <div class="skill-item">
+          <i class="fas fa-lock"></i>
+          <h3>Cybersecurity</h3>
+          <p>Expertise in network security, penetration testing, and incident response.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-microscope"></i>
+          <h3>Digital Forensics</h3>
+          <p>Proficient in data recovery, evidence collection, and digital investigations.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-pen-nib"></i>
+          <h3>UI Design</h3>
+          <p>Experienced in creating user-friendly interfaces using Figma.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-code"></i>
+          <h3>Python Programming</h3>
+          <p>Skilled in developing custom tools and automating tasks with Python.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-industry"></i>
+          <h3>Critical Infrastructure Security</h3>
+          <p>Familiar with securing industrial control systems and SCADA networks.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-robot"></i>
+          <h3>Generative AI</h3>
+          <p>Exploring the capabilities of generative AI models for various applications.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-globe"></i>
+          <h3>Web Development</h3>
+          <p>Proficient in building responsive and visually appealing websites.</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-server"></i>
+          <h3>Information Technology</h3>
+          <p>Knowledgeable in managing IT infrastructure and providing technical support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="section-content">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>B.Tech in Computer Science</h3>
+        <h4>Manav Rachna International Institute of Research & Studies</h4>
+        <p>August 2023 - Present</p>
+        <p>Specialization in Digital Forensics and Cyber Security</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="section-content">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <h3>Head of Operations, MRISA-Manav Rachna InfoSec Army</h3>
+        <h4>August 2024 - Present</h4>
+        <p>Responsible for coordinating and leading the operations of the information security club.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Core Team Member, MRISA-Manav Rachna InfoSec Army</h3>
+        <h4>September 2023 - August 2024</h4>
+        <p>Actively contributed to the club's activities and initiatives related to cybersecurity.</p>
+      </div>
+      <div class="experience-item">
+        <h3>IFSO/NCFL Intern, Delhi Police</h3>
+        <h4>June 2024 - July 2024</h4>
+        <p>Gained hands-on experience in digital forensics at the IFSO/NCFL Special Cell.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Intern UX/UI Design, Dresset - Doorstep Clothing Services</h3>
+        <h4>April 2024 - July 2024</h4>
+        <p>Designed user-friendly interfaces and improved the overall user experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-content">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <?php echo date("Y"); ?> Aditya Tripathi. All rights reserved.</p>
+    <p>Email me at <a href="mailto:yours@example.com" style="color:var(--secondary-color);">yours@example.com</a></p>
+  </footer>
 
   <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </body>
