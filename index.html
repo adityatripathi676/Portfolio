@@ -8,6 +8,29 @@
   <title>AT :: Advanced CyberSec Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init({
+          publicKey: "aoqx6tqtKesDEbsoB",
+        });
+    })();
+</script>
+<script type="text/javascript">
+  window.onload = function() {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // IDs updated to match EmailJS template and service
+        emailjs.sendForm('service_adi766', 'template_m0lhfrc', this)
+            .then(() => {
+                console.log('SUCCESS!');
+            }, (error) => {
+                console.log('FAILED...', error);
+            });
+    });
+}
+</script>
   <style>
     :root {
       --neon: #00ff9d;
@@ -306,6 +329,7 @@
       height: 100%;
       background: var(--neon);
       animation: progress 1.5s ease-out forwards;
+      width: var(--progress);
     }
 
     .experience-timeline {
@@ -493,20 +517,20 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact contact-form">
     <div class="container">
       <h2 class="section-title">/root/contact</h2>
-      <form class="contact-form">
+      <form class="contact-form" id="contact-form">
         <div class="form-group">
-          <input type="text" class="form-input" placeholder="$ whoami" required>
+          <input type="text" name="user_name" class="form-input" placeholder="$ whoami" required>
         </div>
         <div class="form-group">
-          <input type="email" class="form-input" placeholder="$ echo $EMAIL" required>
+          <input type="email" name="user_email" class="form-input" placeholder="$ echo $EMAIL" required>
         </div>
         <div class="form-group">
-          <textarea class="form-input" placeholder="$ cat message.txt" rows="5" required></textarea>
+          <textarea class="form-input" name="message" placeholder="$ cat message.txt" rows="5" required></textarea>
         </div>
-        <button type="submit" class="cta-btn">TRANSMIT MESSAGE</button>
+        <button type="submit" class="cta-btn" value="Send">TRANSMIT MESSAGE</button>
       </form>
     </div>
   </section>
@@ -534,18 +558,18 @@
 
     // Typewriter Effect for Hero Text
     const typewriterText = document.querySelector('.typewriter');
-  const typewriterStr = "Aditya Tripathi";
-  let i = 0;
+    const typewriterStr = "Aditya Tripathi";
+    let i = 0;
 
-  function typeEffect() {
-    if (i < typewriterStr.length) {
-      typewriterText.textContent += typewriterStr.charAt(i);
-      i++;
-      setTimeout(typeEffect, 150);
+    function typeEffect() {
+      if (i < typewriterStr.length) {
+        typewriterText.textContent += typewriterStr.charAt(i);
+        i++;
+        setTimeout(typeEffect, 150);
+      }
     }
-  }
 
-  document.addEventListener("DOMContentLoaded", typeEffect);
+    document.addEventListener("DOMContentLoaded", typeEffect);
 
     // Matrix Background Animation
     const matrixBg = document.querySelector('.matrix-bg');
@@ -559,13 +583,17 @@
 
     // Skill Progress Bars on Scroll
     const skillSection = document.querySelector('#skills');
-    const skillBars = document.querySelectorAll('.progress-bar::after');
+    const skillBars = document.querySelectorAll('.progress-bar');
+
     function fillSkills() {
       skillBars.forEach(bar => {
+        // Retrieve the `--progress` value
         const progress = bar.style.getPropertyValue('--progress');
-        bar.style.width = progress;
+        bar.style.setProperty('width', progress); // Apply to the bar itself
       });
     }
+
+    // Call this when skills section is in viewport
     window.addEventListener('scroll', () => {
       if (skillSection.getBoundingClientRect().top < window.innerHeight) {
         fillSkills();
@@ -573,19 +601,22 @@
     });
 
     // Contact Form Validation
-    const contactForm = document.querySelector('.contact-form');
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(contactForm);
-      const user = formData.get('$ whoami');
-      const email = formData.get('$ echo $EMAIL');
-      const message = formData.get('$ cat message.txt');
-      if (!user || !email || !message) {
-        alert("Please fill in all fields.");
-      } else {
-        alert("Message sent successfully!");
-      }
-    });
+  //   const contactForm = document.querySelector('.contact-form');
+  // contactForm.addEventListener('submit', (e) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(contactForm);
+  //   const user = formData.get('user_name'); // Matches the `name` attribute
+  //   const email = formData.get('user_email'); // Matches the `name` attribute
+  //   const message = formData.get('message'); // Matches the `name` attribute
+
+  //   if (!user || !email || !message) {
+  //     alert("Please fill in all fields.");
+  //   } else {
+  //     alert("Message sent successfully!");
+  //     // You can also add the emailjs.sendForm function here if needed.
+  //   }
+  // });
   </script>
 </body>
 
